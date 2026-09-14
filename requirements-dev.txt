@@ -1,0 +1,5 @@
+# 运行期依赖（含打包）
+-r requirements.txt
+
+# 测试
+pytest>=8.0

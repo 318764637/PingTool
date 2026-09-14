@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Logs
+*.log
+
+# 测试与临时目录
+.pytest_cache/
+envtmp/
+pt2/
+pt3/
+pytest_tmp_work/
+
+# Codex 桌面端元数据
+.reasonix/
+
+# 发布压缩包
+*.7z
+
+# C++ 实验版构建输出
+ping-tool-cpp/**/obj/
+ping-tool-cpp/x64/
+*.vcxproj.user
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# User data
+targets.json
