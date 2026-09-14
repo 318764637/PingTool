@@ -1,3 +1,5 @@
+<img src="assets/app.png" alt="Ping Tool" width="96" align="right">
+
 # Ping Tool
 
 一个 Windows 桌面 Ping 工具，支持多目标并行 Ping 测试，以及 Tailscale、Windows 防火墙的服务管理。
@@ -36,7 +38,10 @@ python main.py
 build.bat
 ```
 
-打包后的可执行文件位于 `dist/PingTool.exe`。
+打包后的可执行文件位于 `dist/PingTool.exe`（已内嵌 `assets/app.ico` 图标）。
+
+图标由 `tools/make_icon.py` 用几何图形绘制生成，修改配色或造型后重新运行该脚本即可
+重新生成 `assets/app.ico`（含 16–256px 共 9 种尺寸）。
 
 ## 配置
 

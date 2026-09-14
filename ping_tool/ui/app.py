@@ -1,8 +1,10 @@
 import customtkinter as ctk
 import atexit
 import queue
+import sys
 import threading
 import time
+from pathlib import Path
 from tkinter import messagebox
 from ..config import get_config
 from ..logger import get_logger
@@ -18,6 +20,17 @@ from .components.firewall_card import FirewallCard
 from .components.status_bar import StatusBar
 
 logger = get_logger(__name__)
+
+
+def resource_path(relative):
+    """返回随程序分发的资源路径。
+
+    打包（PyInstaller onefile）后资源解压到 sys._MEIPASS；源码运行时在项目根目录。
+    """
+    base = getattr(sys, "_MEIPASS", None)
+    if base is None:
+        base = Path(__file__).resolve().parent.parent.parent
+    return Path(base) / relative
 
 
 class PingApp(ctk.CTk):
@@ -59,6 +72,7 @@ class PingApp(ctk.CTk):
         self.geometry(f"{width}x{height}")
         self.minsize(WINDOW["min_width"], WINDOW["min_height"])
         self.configure(fg_color=COLORS["bg"])
+        self._set_window_icon()
         self.update_idletasks()
         screen_w = self.winfo_screenwidth()
         screen_h = self.winfo_screenheight()
@@ -67,6 +81,13 @@ class PingApp(ctk.CTk):
         self.geometry(f"{width}x{height}+{x}+{y}")
         ctk.set_appearance_mode("dark")
         ctk.set_default_color_theme("blue")
+
+    def _set_window_icon(self):
+        """设置标题栏/任务栏图标；图标缺失时静默跳过，不影响启动。"""
+        try:
+            self.iconbitmap(str(resource_path(Path("assets") / "app.ico")))
+        except Exception as e:
+            logger.debug(f"设置窗口图标失败: {e}")
 
     def _create_ui(self):
         self.grid_columnconfigure(0, weight=1)

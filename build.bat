@@ -14,7 +14,9 @@ python -m PyInstaller ^
     --onefile ^
     --windowed ^
     --name "PingTool" ^
+    --icon "assets\app.ico" ^
     --add-data "targets.json;." ^
+    --add-data "assets\app.ico;assets" ^
     --collect-data customtkinter ^
     --hidden-import "ping_tool" ^
     --hidden-import "ping_tool.core" ^
