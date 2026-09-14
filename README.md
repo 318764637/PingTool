@@ -13,6 +13,13 @@
 - 防火墙管理：一键关闭 Windows 防火墙，也可随时恢复开启并查看当前状态
 - 输入验证：支持 IPv4、IPv6、域名格式验证
 
+## 下载
+
+打包好的可执行文件在 [Releases](https://github.com/318764637/PingTool/releases) 页面：
+下载 `PingTool.exe` 双击即可运行，无需安装 Python。
+
+> 提示：仓库当前为私有，下载链接需要登录有权限的账号才能访问。
+
 ## 安装依赖
 
 ```bash
